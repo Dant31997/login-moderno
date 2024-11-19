@@ -5032,7 +5032,7 @@ input[type=submit].btn-block {
 
 .card-body {
     flex: 1 1 auto;
-    min-height: 1px;
+    height: auto;
     padding: 1.25rem
 }
 
