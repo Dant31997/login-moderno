@@ -5,14 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Meta;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 class MetaController extends Controller
 {
     public function index()
     {
-        $metas = Meta::select('metas.*', 'users.name as encargado_name')
+        if (FacadesAuth::user()->role === 'admin') {
+            $metas = Meta::select('metas.*', 'users.name as encargado_name')
             ->leftJoin('users', 'metas.encargado', '=', 'users.id') // Unir la tabla de metas con la de usuarios
             ->get();
+        } else {
+            $metas = Meta::select('metas.*', 'users.name as encargado_name')
+            ->leftJoin('users', 'metas.encargado', '=', 'users.id') // Unir la tabla de metas con la de usuarios
+            ->where('metas.encargado', FacadesAuth::id())
+            ->get();
+        }
+        // Sino
+
 
         return view('metas.index', compact('metas'));
     }
