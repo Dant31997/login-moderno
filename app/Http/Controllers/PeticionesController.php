@@ -5,13 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Peticion;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class PeticionesController extends Controller
 {
     public function index()
     {
+        
+        // Es admin
+    if (FacadesAuth::user()->role === 'admin'){
         $peticiones = Peticion::all(); // O puedes usar paginación: Peticion::paginate(10);
+    } else{
+// Sino
+        $peticiones = Peticion::where('responsable', auth()->user()->id)->get(); // O puedes usar paginación: Peticion::paginate(10);
+    }
         return view('peticiones.index', compact('peticiones'));
     }
     public function registrarPQR(){
