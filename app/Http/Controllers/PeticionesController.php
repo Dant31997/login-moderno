@@ -54,7 +54,7 @@ class PeticionesController extends Controller
         $peticion = Peticion::findOrFail($id);
         // Obtener solo los empleados con el rol 'employee'
         $empleados = User::where('role', 'employee')->get();
-        return view('peticiones.edit', compact('peticion', 'empleados')); // Asegúrate de pasar 'empleados'
+        return view('peticiones.edit', compact('peticion', 'empleados')); 
     }
 
     // Actualizar una petición
