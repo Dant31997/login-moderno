@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/03ca14290a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="http://localhost/LOGIN-MODERNO/resources/css/index.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
     <title>Document</title>
 </head> 
 
@@ -34,7 +34,7 @@
                     <i class="fa-solid fa-eye show-password" id="togglePassword"></i>
                     <span class="form_line"></span>
                 </div>
-                <input class="form_submit" type="submit" value="Iniciar Sesion">
+                <a href="/"><button class="bn632-hover bn20" type="submit">Iniciar Sesion</button></a>
                 <div class="congrup">
                     <input class="recuperar-pass" type="submit" value="Recuperar Contraseña">
                 </div>

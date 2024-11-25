@@ -1,101 +1,81 @@
 @extends('layouts.app')
 
-@section('title', 'Metas')
+@section('title', 'Tables Page')
 
 @section('content')
-    <div class="container mt-5">
-        <h2 class="mb-4">Metas</h2>
-        @if (Auth::user()->role === 'admin')
-            <a href="{{ route('metas.create') }}" class="btn btn-primary mb-3">Crear Meta</a>
-        @endif
-        @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
-        @if (Auth::user()->role === 'admin')
-            <table class="table table-striped table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>Descripción</th>
-                        <th>Encargado</th>
-                        <th>Estado</th>
-                        <th>Fecha de Creación</th>
-                        <th>Fecha Completada</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($metas as $meta)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $meta->descripcion }}</td>
-                            <td>
-                                @if ($meta->encargado_name)
-                                    {{ $meta->encargado_name }}
-                                @else
-                                    No asignado
-                                @endif
-                            </td>
-                            <td>{{ ucfirst($meta->estado) }}</td>
-                            <td>{{ $meta->created_at->format('d/m/Y H:i') }}</td>
-                            <td>
-                                @if ($meta->fecha_completada)
-                                    {{ $meta->fecha_completada->format('d/m/Y H:i') }}
-                                @else
-                                    No completada
-                                @endif
-                            </td>
-                            <td>
-                                <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-warning btn-sm">Editar</a>
-                                <form action="{{ route('metas.destroy', $meta->id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        @endif
-        @if (Auth::user()->role === 'employee')
-            <table class="table table-striped table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>Descripción</th>
-                        <th>Encargado</th>
-                        <th>Estado</th>
-                        <th>Fecha de Creación</th>
-                        <th>Fecha Completada</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($metas as $meta)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $meta->descripcion }}</td>
-                            <td>
-                                @if ($meta->encargado_name)
-                                    {{ $meta->encargado_name }}
-                                @else
-                                    No asignado
-                                @endif
-                            </td>
-                            <td>{{ ucfirst($meta->estado) }}</td>
-                            <td>{{ $meta->fecha_creacion }}</td>
-                            <td>{{ $meta->fecha_completada }}</td>
-                            <td>
-                                <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-warning btn-sm">Completar</a>
-                                <form action="{{ route('metas.destroy', $meta->id) }}" method="POST" class="d-inline">
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        @endif
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h3 class="m-0 font-weight-bold text-primary ">Tabla de Metas</h3>
+        </div>
 
+        {{-- Botón para Crear Meta (solo para Admin) --}}
+        @if (Auth::user()->role === 'admin')
+            <a href="{{ route('metas.create') }}" class="btn btn-success m-3">Crear Meta</a>
+        @endif
+        {{-- Inicio del content de la tabla --}}
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Descripción</th>
+                            <th>Encargado</th>
+                            <th>Estado</th>
+                            <th>Fecha de Creación</th>
+                            <th>Fecha Completada</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Descripción</th>
+                            <th>Encargado</th>
+                            <th>Estado</th>
+                            <th>Fecha de Creación</th>
+                            <th>Fecha Completada</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach ($metas as $meta)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $meta->descripcion }}</td>
+                                <td>
+                                    @if ($meta->encargado_name)
+                                        {{ $meta->encargado_name }}
+                                    @else
+                                        No asignado
+                                    @endif
+                                </td>
+                                <td>{{ ucfirst($meta->estado) }}</td>
+                                <td>{{ $meta->created_at->format('d/m/Y H:i') }}</td>
+                                <td>
+                                    @if ($meta->fecha_completada)
+                                        {{ $meta->fecha_completada->format('d/m/Y H:i') }}
+                                    @else
+                                        No completada
+                                    @endif
+                                </td>
+                                <td class="d-flex justify-content-center align-items-center">
+                                    {{-- Botón para Editar --}}
+                                    <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-info mr-3">Editar</a>
+
+                                    {{-- Botón para Eliminar --}}
+                                    <form action="{{ route('metas.destroy', $meta->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"
+                                            onclick="return confirm('¿Estás seguro de eliminar esta meta?');">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 @endsection
