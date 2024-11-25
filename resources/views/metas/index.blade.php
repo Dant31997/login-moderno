@@ -61,15 +61,21 @@
                                 </td>
                                 <td class="d-flex justify-content-center align-items-center">
                                     {{-- Botón para Editar --}}
+                                    @if (Auth::user()->role === 'admin')
                                     <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-info mr-3">Editar</a>
-
                                     {{-- Botón para Eliminar --}}
                                     <form action="{{ route('metas.destroy', $meta->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"
                                             onclick="return confirm('¿Estás seguro de eliminar esta meta?');">Eliminar</button>
-                                    </form>
+                                    </form> 
+                                    @endif
+                                    @if (Auth::user()->role === 'employee')
+                                    <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-info mr-3">Completar</a>
+                                    @endif
+
+                                    
                                 </td>
                             </tr>
                         @endforeach
