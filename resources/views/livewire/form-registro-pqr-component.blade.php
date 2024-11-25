@@ -51,8 +51,9 @@
         <div class="mb-3">
             <label for="tipoPeticion" class="form-label font-weight-bold"><i class="fas fa-question-circle"></i> Tipo de
                 Petición</label>
-            <select id="tipoPeticion" wire:model.live="tipoPeticion" class="form-select bg-light text-secondary" required>
-                <option value="" disabled selected>Seleccione una opción</option>
+            <select id="tipoPeticion" wire:model.live="tipoPeticion"
+                class="form-select border-secondary bg-light text-secondary" required>
+                <option value="">Seleccione una opción</option>
                 <option value="Peticion">Petición</option>
                 <option value="Queja">Queja</option>
                 <option value="Reclamo">Reclamo</option>

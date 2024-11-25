@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\DB;
+
 
 class PeticionesController extends Controller
 {
@@ -52,7 +54,7 @@ class PeticionesController extends Controller
         $peticion = Peticion::findOrFail($id);
         // Obtener solo los empleados con el rol 'employee'
         $empleados = User::where('role', 'employee')->get();
-        return view('peticiones.edit', compact('peticion', 'empleados')); // Asegúrate de pasar 'empleados'
+        return view('peticiones.edit', compact('peticion', 'empleados')); 
     }
 
     // Actualizar una petición

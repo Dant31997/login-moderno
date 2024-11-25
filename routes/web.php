@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\PeticionesController;
 use App\Http\Controllers\MetaController;
 use App\Http\Controllers\PeticionController;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +37,6 @@ Route::get('/pqr', [HomeController::class, 'pqr'])->name('pqr')->middleware('aut
 Route::get('/pqr-register', [PeticionesController::class, 'registrarPQR'])->name('pqr.registrar');
 Route::resource('metas', MetaController::class);
 Route::resource('peticiones', PeticionesController::class);
+
+
+Route::get('/dashboard', [DashboardController::class, 'contenidoDash'])->middleware('auth');
