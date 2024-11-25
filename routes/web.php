@@ -7,7 +7,6 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\PeticionesController;
 use App\Http\Controllers\MetaController;
 use App\Http\Controllers\PeticionController;
-use App\Http\Controllers\DashboardControllerController;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 /*
