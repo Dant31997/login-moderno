@@ -53,7 +53,7 @@
                 Petición</label>
             <select id="tipoPeticion" wire:model.live="tipoPeticion"
                 class="form-select border-secondary bg-light text-secondary" required>
-                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="">Seleccione una opción</option>
                 <option value="Peticion">Petición</option>
                 <option value="Queja">Queja</option>
                 <option value="Reclamo">Reclamo</option>
