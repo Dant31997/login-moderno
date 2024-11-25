@@ -59,7 +59,7 @@
                 <option value="Reclamo">Reclamo</option>
             </select>
         </div>
-
+        
         <!-- Descripción -->
         <div class="mb-3">
             <label for="descripcion" class="form-label font-weight-bold"><i class="fas fa-pen"></i> Descripción</label>
