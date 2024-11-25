@@ -6,6 +6,8 @@ use App\Models\Meta;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\DB;
+
 class MetaController extends Controller
 {
     public function index()
@@ -20,9 +22,6 @@ class MetaController extends Controller
             ->where('metas.encargado', FacadesAuth::id())
             ->get();
         }
-        // Sino
-
-
         return view('metas.index', compact('metas'));
     }
 
