@@ -8,7 +8,7 @@ use App\Http\Controllers\PeticionesController;
 use App\Http\Controllers\MetaController;
 use App\Http\Controllers\PeticionController;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
-
+use App\Http\Controllers\ConsultaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +37,8 @@ Route::get('/pqr', [HomeController::class, 'pqr'])->name('pqr')->middleware('aut
 Route::get('/pqr-register', [PeticionesController::class, 'registrarPQR'])->name('pqr.registrar');
 Route::resource('metas', MetaController::class);
 Route::resource('peticiones', PeticionesController::class);
+route::get('/consultapqr', [ConsultaController::class, 'index'])->name('consultapqr');
+Route::post('/consultapqr', [ConsultaController::class, 'show'])->name('consulta.show');
 
 
 Route::get('/dashboard', [DashboardController::class, 'contenidoDash'])->middleware('auth');

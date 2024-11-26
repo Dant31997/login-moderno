@@ -4,6 +4,9 @@
         <h2 class="font-weight-bold text-primary">Formulario de Contacto</h2>
         <p class="text-dark">Por favor, completa el formulario con tus datos para procesar tu solicitud.</p>
     </div>
+    <div class="">
+       <a href="{{ route('consultapqr') }}" class="btn btn-primary">Consulta de Petición</a>
+    </div>
 
     <!-- Mensaje de Alerta -->  
     @if (isset($mensaje))

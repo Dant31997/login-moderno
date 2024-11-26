@@ -11,6 +11,7 @@ class Peticion extends Model
 
     protected $table = "peticiones";
     protected $fillable = ['nombreCompleto', 'numeroCuenta', 'correo', 'telefono', 'tipoPeticion', 'asunto', 'descripcion', 'respuesta','estado', 'preferenciaContacto', 'responsable'];
+    protected $primaryKey ='id';
 
     // Relación con el modelo User (Empleado)
     public function responsableEmpleado()
