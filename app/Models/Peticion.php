@@ -10,7 +10,7 @@ class Peticion extends Model
     use HasFactory;
 
     protected $table = "peticiones";
-    protected $fillable = ['nombreCompleto', 'numeroCuenta', 'correo', 'telefono', 'tipoPeticion', 'asunto', 'descripcion', 'estado', 'preferenciaContacto', 'responsable'];
+    protected $fillable = ['nombreCompleto', 'numeroCuenta', 'correo', 'telefono', 'tipoPeticion', 'asunto', 'descripcion', 'respuesta','estado', 'preferenciaContacto', 'responsable'];
 
     // Relación con el modelo User (Empleado)
     public function responsableEmpleado()

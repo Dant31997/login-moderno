@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/03ca14290a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
-    <title>Document</title>
+    <title>BancApp</title>
 </head> 
 
 <body>

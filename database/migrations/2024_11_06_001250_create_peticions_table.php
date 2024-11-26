@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('tipoPeticion', ['Peticion', 'Queja', 'Reclamo'])->default('Peticion'); // Tipo de petición
             $table->string('asunto', 1000)->nullable(); // Asunto, puede ser nulo
             $table->text('descripcion')->nullable(); // Descripción de la petición, puede ser nula
+            $table->text('respuesta')->nullable(); 
             $table->string('preferenciaContacto')->nullable(); // Preferencia de contacto
             $table->boolean('consentimiento')->default(false); // Consentimiento de contacto
             $table->string('estado')->default('Pendiente'); // Estado de la petición

@@ -85,7 +85,7 @@
                                                     <p>{{ $peticion->estado }}</p>
 
                                                     <h6>Responsable:</h6>
-                                                    <p>{{ $peticion->responsable }}</p>
+                                                    <p>{{ $peticion->responsableEmpleado ? $peticion->responsableEmpleado->name : 'No asignado' }}</p>
 
                                                     <h6>Fecha de Creación:</h6>
                                                     <p>{{ $peticion->created_at->format('d/m/Y H:i') }}</p>
