@@ -27,13 +27,13 @@
         <form class="shadow p-4 rounded bg-gradient-primary text-white" action="{{ route('consulta.show') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="id" class="form-label">ID de la Petición</label>
+                <label for="id" class="form-label">Numero de la Petición</label>
                 <input 
                     type="text" 
                     name="id" 
                     id="id" 
                     class="form-control"
-                    placeholder="Introduce el ID a buscar"
+                    placeholder="Introduce el numero de tu peticion"
                     value="{{ old('id') }}" 
                     required
                 >

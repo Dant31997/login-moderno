@@ -41,7 +41,7 @@ class FormRegistroPqrComponent extends Component
             $item->consentimiento = $this->consentimiento;
             $respuesta = $item->save();
     
-            $this->mensaje = 'Peticion generada con exito. ' .  $respuesta;
+            $this->mensaje = 'Peticion generada con exito.' ;
 
         } catch (\Throwable $th) {
             $this->mensaje = 'Hay un error: ' . $th->getMessage();
