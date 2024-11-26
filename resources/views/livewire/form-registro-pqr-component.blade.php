@@ -1,6 +1,14 @@
 <div class="container mt-5" >
     <!-- Encabezado -->
+    <img src="http://localhost/LOGIN-MODERNO/resources/img/pixelcut-export.png" style="width: 100px; position:absolute; left:450px; top: 45px " alt="BancApp">
     <div class="text-center mb-4">
+        
+        <script src="https://kit.fontawesome.com/03ca14290a.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <h2 class="font-weight-bold text-primary">Formulario de PQRs</h2>
         <p class="text-dark">Por favor, completa el formulario con tus datos para procesar tu solicitud.</p>
     </div>

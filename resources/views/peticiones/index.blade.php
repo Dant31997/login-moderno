@@ -3,6 +3,8 @@
 @section('title', 'Tables Page')
 
 @section('content')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h3 class="m-0 font-weight-bold text-primary ">Tabla de PQR</h3>
@@ -61,6 +63,8 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <h6>Nombre:</h6>
+                                                    <div class="row">
+                                                    <div class="col-md-6">
                                                     <p>{{ $peticion->nombreCompleto }}</p>
 
                                                     <h6>N° de cuenta:</h6>
@@ -77,7 +81,8 @@
 
                                                     <h6>Descripción:</h6>
                                                     <p>{{ $peticion->descripcion }}</p>
-
+                                                    </div>
+                                                    <div class="col-md-6">
                                                     <h6>Contactar por:</h6>
                                                     <p>{{ $peticion->preferenciaContacto }}</p>
 
@@ -87,22 +92,30 @@
                                                     <h6>Responsable:</h6>
                                                     <p>{{ $peticion->responsableEmpleado ? $peticion->responsableEmpleado->name : 'No asignado' }}</p>
 
+                                                    <h6>Respuesta:</h6>
+                                                    <p>{{ $peticion->respuesta }}</p>
+                                                    
                                                     <h6>Fecha de Creación:</h6>
                                                     <p>{{ $peticion->created_at->format('d/m/Y H:i') }}</p>
 
                                                     <h6>Última Actualización:</h6>
                                                     <p>{{ $peticion->updated_at->format('d/m/Y H:i') }}</p>
+                                                    
+                                                    </div>
+                                                    </div>
                                                 </div>
+                                               
                                                 <div class="modal-footer">
+                                                    @if (Auth::user()->role === 'employee')
                                                     <!-- Botón de Responder (Visible para ambos, admin y employee) -->
                                                     <a href="{{ route('peticiones.edit', $peticion->id) }}"
                                                         class="btn btn-success">Responder</a>
-
+                                                    @endif
                                                     <!-- Los siguientes botones solo los verá el admin -->
                                                     @if (Auth::user()->role === 'admin')
                                                         <!-- Botón de Asignar (Solo visible para admin) -->
                                                         <a href="{{ route('peticiones.edit', $peticion->id) }}"
-                                                            class="btn btn-warning">Asignar</a>
+                                                            class="btn btn-warning">Responder o Asignar</a>
 
                                                         <!-- Botón de Eliminar (Solo visible para admin) -->
                                                         <form action="{{ route('peticiones.destroy', $peticion->id) }}"

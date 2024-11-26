@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         @if (Auth::user()->role === 'admin')
-        <h1>Asignar petición</h1>
+        <h1>Responder o Asignar PQR</h1>
 
         <form action="{{ route('peticiones.update', $peticion->id) }}" method="POST">
             @csrf
@@ -37,13 +37,19 @@
                     @endforeach
                 </select>
             </div>
+            <div class="form-group">
+                <label for="respuesta">Respuesta</label>
+                <textarea name="respuesta" id="respuesta" class="form-control" required>{{ $peticion->respuesta }}</textarea>
+            </div>
 
-            <button type="submit" class="btn btn-success mt-3">Asignar</button>
+            <button type="submit" class="btn btn-success mt-3">Enviar</button>
+            <a href="{{ route('peticiones.index') }}" class="btn btn-danger mt-3">Cancelar</a>
+
         </form>
         @endif
 
         @if (Auth::user()->role === 'employee')
-        <h1>Responder petición</h1>
+        <h1>Responder PQR</h1>
 
         <form action="{{ route('peticiones.update', $peticion->id) }}" method="POST">
             @csrf

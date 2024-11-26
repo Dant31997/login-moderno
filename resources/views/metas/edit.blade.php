@@ -53,13 +53,13 @@
 
             <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
-                <input disabled type="text" class="form-control" id="descripcion" name="descripcion"
+                <input readonly type="text" class="form-control" id="descripcion" name="descripcion"
                     value="{{ old('descripcion', $meta->descripcion) }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="estado" class="form-label">Estado</label>
-                <select class="form-select" id="estado" name="estado" required>
+                <select disabled  class="form-select" id="estado" name="estado" >
                     <option value="Pendiente" {{ $meta->estado == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
                     <option value="En proceso" {{ $meta->estado == 'En proceso' ? 'selected' : '' }}>En proceso</option>
                     <option value="Completada" {{ $meta->estado == 'Completada' ? 'selected' : '' }}>Completada</option>
@@ -81,7 +81,7 @@
                 <p>Suba aqui la captura de pantalla que evidencie la realización de la meta.</p>
                 <input  type="file" class="form-control" id="evidencia" name="evidencia"required>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Verificar Meta</button>
+            <button type="submit" class="btn btn-primary mt-3">Enviar</button>
             <a href="{{ route('metas.index') }}" class="btn btn-danger mt-3">Cancelar</a>
         </form>
 
