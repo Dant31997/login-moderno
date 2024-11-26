@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Consulta de Peticiones</h1>
+        <h1 class="font-weight-bold text-primary text-center">Consulta de Peticiones</h1>
 
         <!-- Mostrar errores de validación -->
         @if ($errors->any())
@@ -23,7 +23,7 @@
         @endif
 
         <!-- Formulario -->
-        <form action="{{ route('consulta.show') }}" method="POST">
+        <form class="shadow p-4 rounded bg-gradient-primary text-white" action="{{ route('consulta.show') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="id" class="form-label">ID de la Petición</label>
@@ -39,9 +39,11 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Buscar</button>
+            <a href="{{ route('pqr.registrar') }}" class="btn btn-danger">Volver</a>
         </form>
 
         <!-- Mostrar resultados si existen -->
+        <div class="shadow p-4 rounded bg-gradient-primary text-white">
         @if (isset($peticiones))
             <div class="mt-4">
                 <h3>Resultado:</h3>
@@ -54,42 +56,6 @@
                         id="nombreCompleto" 
                         class="form-control"
                         placeholder="{{ $peticiones->nombreCompleto }}"
-                        readonly
-                    >
-                </div>
-
-                <!-- Número de Cuenta -->
-                <div class="mb-3">
-                    <label for="numeroCuenta" class="form-label">Número de Cuenta</label>
-                    <input 
-                        type="text" 
-                        id="numeroCuenta" 
-                        class="form-control"
-                        placeholder="{{ $peticiones->numeroCuenta }}"
-                        readonly
-                    >
-                </div>
-
-                <!-- Correo -->
-                <div class="mb-3">
-                    <label for="correo" class="form-label">Correo</label>
-                    <input 
-                        type="email" 
-                        id="correo" 
-                        class="form-control"
-                        placeholder="{{ $peticiones->correo }}"
-                        readonly
-                    >
-                </div>
-
-                <!-- Teléfono -->
-                <div class="mb-3">
-                    <label for="telefono" class="form-label">Teléfono</label>
-                    <input 
-                        type="text" 
-                        id="telefono" 
-                        class="form-control"
-                        placeholder="{{ $peticiones->telefono }}"
                         readonly
                     >
                 </div>
@@ -130,31 +96,21 @@
                     >
                 </div>
 
-                <!-- Cuenta de Contacto -->
+                <!-- Respuesta -->
                 <div class="mb-3">
-                    <label for="preferenciaContacto" class="form-label">Cuenta de Contacto</label>
+                    <label for="respuesta" class="form-label">Respuesta</label>
                     <input 
                         type="text" 
-                        id="prefenciaContacto" 
+                        id="Respuesta"
                         class="form-control"
-                        placeholder="{{ $peticiones->preferenciaContacto }}"
-                        readonly
-                    >
-                </div>
-
-                <!-- Consentimiento -->
-                <div class="mb-3">
-                    <label for="consentimiento" class="form-label">Consentimiento</label>
-                    <input 
-                        type="text" 
-                        id="consentimiento" 
-                        class="form-control"
-                        placeholder="{{ $peticiones->consentimiento }}"
+                        placeholder="{{ $peticiones->respuesta }}"
                         readonly
                     >
                 </div>
             </div>
         @endif
     </div>
+</div>
+    
 </body>
 </html>

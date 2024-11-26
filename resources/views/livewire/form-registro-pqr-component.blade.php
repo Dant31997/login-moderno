@@ -1,11 +1,11 @@
 <div class="container mt-5" >
     <!-- Encabezado -->
     <div class="text-center mb-4">
-        <h2 class="font-weight-bold text-primary">Formulario de Contacto</h2>
+        <h2 class="font-weight-bold text-primary">Formulario de PQRs</h2>
         <p class="text-dark">Por favor, completa el formulario con tus datos para procesar tu solicitud.</p>
     </div>
     <div class="">
-       <a href="{{ route('consultapqr') }}" class="btn btn-primary">Consulta de Petición</a>
+       <a href="{{ route('consultapqr') }}" class="btn btn-primary consultar-pqr">Consulta de Petición</a>
     </div>
 
     <!-- Mensaje de Alerta -->  
@@ -101,7 +101,7 @@
 
         <!-- Botón Guardar -->
         <div class="d-grid">
-            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> Guardar</button>
+            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> Enviar</button>
         </div>
     </form>
 </div>
