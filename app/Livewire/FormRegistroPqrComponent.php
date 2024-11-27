@@ -41,8 +41,9 @@ class FormRegistroPqrComponent extends Component
             $item->preferenciaContacto = $this->preferenciaContacto;
             $item->consentimiento = $this->consentimiento;
             $respuesta = $item->save();
+            $usar = $item->id;
     
-            $this->mensaje = 'Peticion generada con exito.'.$respuesta ;
+            $this->mensaje = 'Peticion generada con exito.'.$respuesta. $usar ;
 
         } catch (\Throwable $th) {
             $this->mensaje = 'Hay un error: ' . $th->getMessage();
@@ -50,7 +51,7 @@ class FormRegistroPqrComponent extends Component
 
         //session()->flash('status', 'Peticion generada con exito.', $respuesta);
  
-        return;
+        return redirect()->route('pqr.registrar');
     }
 
     public function render()
