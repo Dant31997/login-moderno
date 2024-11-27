@@ -73,18 +73,6 @@
                     >
                 </div>
 
-                <!-- Asunto -->
-                <div class="mb-3">
-                    <label for="asunto" class="form-label">Asunto</label>
-                    <input 
-                        type="text" 
-                        id="asunto" 
-                        class="form-control"
-                        placeholder="{{ $peticiones->asunto }}"
-                        readonly
-                    >
-                </div>
-
                 <!-- Descripción -->
                 <div class="mb-3">
                     <label for="descripcion" class="form-label">Descripción</label>

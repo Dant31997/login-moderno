@@ -3,6 +3,7 @@
     
 @php
     use App\Http\Controllers\PeticionesController;
+    
 @endphp
 
     <img src="http://localhost/LOGIN-MODERNO/resources/img/pixelcut-export.png" style="width: 100px; position:absolute; left:450px; top: 45px " alt="BancApp">
@@ -24,7 +25,7 @@
     <!-- Mensaje de Alerta -->  
     @if (isset($mensaje))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <i class="fas fa-exclamation-circle"></i> {{ $mensaje .'El numero para consultar tu peticion es: ' }}
+            <i class="fas fa-exclamation-circle"></i> {{ $mensaje .'El numero para consultar tu peticion es: '}}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif

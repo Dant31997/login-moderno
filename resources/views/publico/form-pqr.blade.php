@@ -1,6 +1,6 @@
 @extends('layouts.app-publico')
 
-@section('title', 'Dashboard')
+@section('title', 'Formulario de PQRs')
 
 @section('content')
     <div class="row bg-light ">

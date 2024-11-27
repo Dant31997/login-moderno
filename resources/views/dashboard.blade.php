@@ -141,7 +141,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <div class="chart-pie pt-4 pb-2">
+                    <div class="chart-pie pt-4 pb-2 table-responsive">
         
                         <table class="table table-bordered" id="" width="100%" cellspacing="0">
                             <thead>
@@ -184,7 +184,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <div class="chart-pie pt-4 pb-2">
+                    <div class="chart-pie pt-4 pb-2 table-responsive">
                         <table class="table table-bordered" id="" width="100%" cellspacing="0">
                             <thead>
                                 <tr>

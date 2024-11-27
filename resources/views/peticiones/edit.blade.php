@@ -10,15 +10,24 @@
             @method('PUT')
 
             <div class="form-group">
+                <label for="tipo">Nombre</label>
+                <input type="text" name="nombre" id="nombre" class="form-control" value="{{ $peticion->nombreCompleto }}"
+                    readonly>
+            </div>
+
+            <div class="form-group">
                 <label for="tipo">Tipo</label>
                 <input type="text" name="tipo" id="tipo" class="form-control" value="{{ $peticion->tipoPeticion }}"
                     readonly>
             </div>
 
             <div class="form-group">
-                <label for="tipo">Asunto</label>
-                <input type="text" name="asunto" id="asunto" class="form-control" value="{{ $peticion->asunto }}"
-                    readonly>
+                <label for="estado" > Estado</label>
+                <select class="form-select" id="estado" name="estado" required>
+                    <option value="Pendiente" {{ $peticion->estado == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
+                    <option value="En proceso" {{ $peticion->estado == 'En proceso' ? 'selected' : '' }}>En proceso</option>
+                    <option value="Completada" {{ $peticion->estado == 'Completada' ? 'selected' : '' }}>Completada</option>
+                </select>
             </div>
 
             <div class="form-group">
@@ -39,7 +48,7 @@
             </div>
             <div class="form-group">
                 <label for="respuesta">Respuesta</label>
-                <textarea name="respuesta" id="respuesta" class="form-control" required>{{ $peticion->respuesta }}</textarea>
+                <textarea name="respuesta" id="respuesta" class="form-control" >{{ $peticion->respuesta }}</textarea>
             </div>
 
             <button type="submit" class="btn btn-success mt-3">Enviar</button>
@@ -76,7 +85,7 @@
                 <textarea name="respuesta" id="respuesta" class="form-control" required>{{ $peticion->respuesta }}</textarea>
             </div>
             <div class="form-group">
-                <select style="visibility: hidden;" class="form-select" id="encargado" name="responsable" required>
+                <select style="visibility: hidden;" class="form-select" id="encargado" name="responsable">
                     <option value="">Seleccione un encargado</option>
                     @foreach ($empleados as $empleado)
                         <option value="{{ $empleado->id }}" {{ $peticion->responsable == $empleado->id ? 'selected' : '' }}>

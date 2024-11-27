@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('correo'); // Correo electrónico del cliente
             $table->string('telefono'); // Teléfono del cliente
             $table->enum('tipoPeticion', ['Peticion', 'Queja', 'Reclamo'])->default('Peticion'); // Tipo de petición
-            $table->string('asunto', 1000)->nullable(); // Asunto, puede ser nulo
             $table->text('descripcion')->nullable(); // Descripción de la petición, puede ser nula
             $table->text('respuesta')->nullable(); 
             $table->string('preferenciaContacto')->nullable(); // Preferencia de contacto

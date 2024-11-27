@@ -7,7 +7,7 @@ use App\Models\Peticion;
 
 class FormRegistroPqrComponent extends Component
 {
-
+    
     public $nombreCompleto;
     public $numeroCuenta;
     public $correo;
@@ -31,6 +31,7 @@ class FormRegistroPqrComponent extends Component
         try {
             //code...
             $item = new Peticion();
+           
             $item->nombreCompleto = $this->nombreCompleto;
             $item->numeroCuenta = $this->numeroCuenta;
             $item->correo = $this->correo;
@@ -41,7 +42,7 @@ class FormRegistroPqrComponent extends Component
             $item->consentimiento = $this->consentimiento;
             $respuesta = $item->save();
     
-            $this->mensaje = 'Peticion generada con exito.' ;
+            $this->mensaje = 'Peticion generada con exito.'.$respuesta ;
 
         } catch (\Throwable $th) {
             $this->mensaje = 'Hay un error: ' . $th->getMessage();

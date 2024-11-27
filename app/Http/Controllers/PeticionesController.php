@@ -63,11 +63,13 @@ class PeticionesController extends Controller
         $request->validate([
             'responsable' => 'required|string|max:255',
             'respuesta' => 'required|string|max:255',
+            'estado' => 'required|string|max:255',
         ]);
 
         $peticion = Peticion::findOrFail($id);
         $peticion->responsable = $request->input('responsable');
         $peticion->respuesta = $request->input('respuesta');
+        $peticion->estado = $request->input('estado');
         $peticion->save();
 
         return redirect()->route('peticiones.index')->with('success', 'Petición actualizada con éxito.');
