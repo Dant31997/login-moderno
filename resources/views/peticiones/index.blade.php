@@ -10,7 +10,7 @@
         {{-- Inicio del content de la tabla --}}
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -85,7 +85,8 @@
                                                     <p>{{ $peticion->estado }}</p>
 
                                                     <h6>Responsable:</h6>
-                                                    <p>{{ $peticion->responsableEmpleado ? $peticion->responsableEmpleado->name : 'No asignado' }}</p>
+                                                    <p>{{ $peticion->responsableEmpleado ? $peticion->responsableEmpleado->name : 'No asignado' }}
+                                                    </p>
 
                                                     <h6>Fecha de Creación:</h6>
                                                     <p>{{ $peticion->created_at->format('d/m/Y H:i') }}</p>
@@ -94,10 +95,11 @@
                                                     <p>{{ $peticion->updated_at->format('d/m/Y H:i') }}</p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <!-- Botón de Responder (Visible para ambos, admin y employee) -->
-                                                    <a href="{{ route('peticiones.edit', $peticion->id) }}"
-                                                        class="btn btn-success">Responder</a>
-
+                                                    <!-- Botón de Responder (Visible para employee) -->
+                                                    @if (Auth::user()->role === 'employee')
+                                                        <a href="{{ route('peticiones.edit', $peticion->id) }}"
+                                                            class="btn btn-success">Responder</a>
+                                                    @endif
                                                     <!-- Los siguientes botones solo los verá el admin -->
                                                     @if (Auth::user()->role === 'admin')
                                                         <!-- Botón de Asignar (Solo visible para admin) -->

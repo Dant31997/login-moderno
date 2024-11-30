@@ -41,7 +41,7 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Actualizar Meta</button>
+            <button type="submit" class="btn btn-success">Actualizar Meta</button>
         </form>
         @endif
 
@@ -81,7 +81,7 @@
                 <p>Suba aqui la captura de pantalla que evidencie la realización de la meta.</p>
                 <input  type="file" class="form-control" id="evidencia" name="evidencia"required>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Verificar Meta</button>
+            <button type="submit" class="btn btn-success mt-3">Verificar Meta</button>
             <a href="{{ route('metas.index') }}" class="btn btn-danger mt-3">Cancelar</a>
         </form>
 

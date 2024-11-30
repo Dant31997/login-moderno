@@ -15,7 +15,7 @@
         {{-- Inicio del content de la tabla --}}
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -62,17 +62,17 @@
                                 <td class="d-flex justify-content-center align-items-center">
                                     {{-- Botón para Editar --}}
                                     @if (Auth::user()->role === 'admin')
-                                    <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-info mr-3">Editar</a>
+                                    <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-info mr-3 " ><i class="fa-solid fa-pen-to-square"></i></a>
                                     {{-- Botón para Eliminar --}}
                                     <form action="{{ route('metas.destroy', $meta->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('¿Estás seguro de eliminar esta meta?');">Eliminar</button>
+                                            onclick="return confirm('¿Estás seguro de eliminar esta meta?');"><i class="fa-solid fa-trash"></i></button>
                                     </form> 
                                     @endif
                                     @if (Auth::user()->role === 'employee')
-                                    <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-info mr-3">Completar</a>
+                                    <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-primary mr-3">Completar</a>
                                     @endif
 
                                     
