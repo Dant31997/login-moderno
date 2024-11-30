@@ -61,7 +61,7 @@
         {{-- Inicio del content de la tabla --}}
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -88,7 +88,7 @@
                                     <!-- Botón de Editar que abre el modal -->
                                     <button type="button" class="btn btn-info mr-3" data-toggle="modal"
                                         data-target="#editModal{{ $usuario->id }}">
-                                        Editar
+                                        <i class="fa-solid fa-pen-to-square"></i>
                                     </button>
 
                                     <!-- Botón de Eliminar -->
@@ -97,7 +97,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</button>
+                                            onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');"><i class="fa-solid fa-trash"></i></button>
                                     </form>
 
                                     <!-- Modal para editar -->
@@ -142,7 +142,7 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Cerrar</button>
-                                                        <button type="submit" class="btn btn-primary">Actualizar
+                                                        <button type="submit" class="btn btn-success">Actualizar
                                                             Usuario</button>
                                                     </div>
                                                 </form>

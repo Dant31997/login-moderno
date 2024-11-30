@@ -42,8 +42,18 @@
                     <option value="Completada" {{ $meta->estado == 'Completada' ? 'selected' : '' }}>Completada</option>
                 </select>
             </div>
-            
-            <button type="submit" class="btn btn-primary">Actualizar Meta</button>
+<div class="mb-3">
+    <label for="encargado" class="form-label">Encargado</label>
+    <select class="form-select" id="encargado" name="encargado" required>
+        <option value="">Seleccione un encargado</option>
+        @foreach ($empleados as $empleado)
+            <option value="{{ $empleado->id }}" {{ $meta->encargado == $empleado->id ? 'selected' : '' }}>
+                {{ $empleado->name }}
+            </option>
+        @endforeach
+    </select>
+</div>
+<button type="submit" class="btn btn-success">Actualizar Meta</button>
         </form>
         @endif
 
@@ -83,7 +93,7 @@
                 <p>Suba aqui la captura de pantalla que evidencie la realización de la meta.</p>
                 <input  type="file" class="form-control" id="evidencia" name="evidencia"required>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+            <button type="submit" class="btn btn-success mt-3">Verificar Meta</button>
             <a href="{{ route('metas.index') }}" class="btn btn-danger mt-3">Cancelar</a>
         </form>
 

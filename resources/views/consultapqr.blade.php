@@ -24,12 +24,12 @@
         @endif
 
         <!-- Formulario -->
-        <form class="shadow p-4 rounded bg-gradient-primary text-white" action="{{ route('consulta.show') }}" method="POST">
+        <form class="shadow p-4 rounded bg-gradient-primary text-white mb-2" action="{{ route('consulta.show') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="id" class="form-label">Numero de la Petición</label>
                 <input 
-                    type="text" 
+                    type="text"     
                     name="id" 
                     id="id" 
                     class="form-control"
@@ -44,7 +44,7 @@
         </form>
 
         <!-- Mostrar resultados si existen -->
-        <div class="shadow p-4 rounded bg-gradient-primary text-white">
+        <div class="shadow p-4 rounded bg-gradient-primary text-white mt-4">
         @if (isset($peticiones))
             <div class="mt-4">
                 <h3>Resultado:</h3>

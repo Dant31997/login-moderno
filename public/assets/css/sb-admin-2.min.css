@@ -7221,7 +7221,7 @@ button.bg-dark:hover {
 }
 
 .rounded-lg {
-    border-radius: .3rem !important
+    border-radius: 1rem !important
 }
 
 .rounded-circle {
@@ -12611,5 +12611,17 @@ body.sidebar-toggled footer.sticky-footer {
 .consultar-pqr{
     position: absolute;
     right: 320px;
-    top: 55px;  
+    top: 55px;
+}
+select.custom-select {
+    appearance: none; 
+    -moz-appearance: none; 
+    -webkit-appearance: none; 
+    background-position: right 10px center; 
+    background-repeat: no-repeat;
+    padding-right: 20px; 
+}
+.dataTables_length {
+    display: flex;
+    align-items: center; 
 }

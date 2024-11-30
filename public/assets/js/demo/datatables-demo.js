@@ -1,4 +1,7 @@
-// Call the dataTables jQuery plugin
 $(document).ready(function() {
-  $('#dataTable').DataTable();
+  $('#dataTable').DataTable({
+    language: {
+      url: "/assets/vendor/datatables/es-ES.json"
+    }
+  });
 });

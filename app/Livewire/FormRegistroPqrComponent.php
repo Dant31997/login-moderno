@@ -16,18 +16,12 @@ class FormRegistroPqrComponent extends Component
     public $descripcion;
     public $preferenciaContacto;
     public $consentimiento;
+    public $mensajeTipo; 
 
     public $mensaje;
 
     public function save()
     {
-        // Guardar el dato
-
-        //dd($this->nombreCompleto);
-        
-
-        // TODO: guardar en la base de datos
-
         try {
             //code...
             $item = new Peticion();
@@ -41,17 +35,17 @@ class FormRegistroPqrComponent extends Component
             $item->preferenciaContacto = $this->preferenciaContacto;
             $item->consentimiento = $this->consentimiento;
             $respuesta = $item->save();
-            $usar = $item->id;
-    
-            $this->mensaje = 'Peticion generada con exito.'.$respuesta. $usar ;
+    // Si la solicitud fue exitosa
+    $this->mensaje = 'Petición generada con éxito. ID: ' . $item->id; // Incluye el ID generado
+    $this->mensajeTipo = 'success'; // Tipo de mensaje de éxito
 
-        } catch (\Throwable $th) {
-            $this->mensaje = 'Hay un error: ' . $th->getMessage();
-        }
+} catch (\Throwable $th) {
+    // Si ocurre un error
+    $this->mensaje = 'Hay un error: ' . $th->getMessage();
+    $this->mensajeTipo = 'danger'; // Tipo de mensaje de error
+}
 
-        //session()->flash('status', 'Peticion generada con exito.', $respuesta);
- 
-        return redirect()->route('pqr.registrar');
+return redirect()->route('pqr.registrar'); // Redirige después de guardar
     }
 
     public function render()

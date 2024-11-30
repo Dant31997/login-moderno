@@ -12,7 +12,7 @@
         {{-- Inicio del content de la tabla --}}
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -90,7 +90,8 @@
                                                     <p>{{ $peticion->estado }}</p>
 
                                                     <h6>Responsable:</h6>
-                                                    <p>{{ $peticion->responsableEmpleado ? $peticion->responsableEmpleado->name : 'No asignado' }}</p>
+                                                    <p>{{ $peticion->responsableEmpleado ? $peticion->responsableEmpleado->name : 'No asignado' }}
+                                                    </p>
 
                                                     <h6>Respuesta:</h6>
                                                     <p>{{ $peticion->respuesta }}</p>
@@ -106,10 +107,11 @@
                                                 </div>
                                                
                                                 <div class="modal-footer">
+                                                    <!-- Botón de Responder (Visible para employee) -->
                                                     @if (Auth::user()->role === 'employee')
-                                                    <!-- Botón de Responder (Visible para ambos, admin y employee) -->
-                                                    <a href="{{ route('peticiones.edit', $peticion->id) }}"
-                                                        class="btn btn-success">Responder</a>
+                                                        <a href="{{ route('peticiones.edit', $peticion->id) }}"
+                                                            class="btn btn-success">Responder</a>
+
                                                     @endif
                                                     <!-- Los siguientes botones solo los verá el admin -->
                                                     @if (Auth::user()->role === 'admin')
