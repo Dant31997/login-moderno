@@ -65,14 +65,14 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="tipo">Tipo</label>
-                <input type="text" name="tipo" id="tipo" class="form-control" value="{{ $peticion->tipoPeticion }}"
+                <label for="nombre">Nombre de la persona</label>
+                <input type="text" name="nombre" id="nombre" class="form-control" value="{{ $peticion->nombreCompleto }}"
                     readonly>
             </div>
 
             <div class="form-group">
-                <label for="tipo">Asunto</label>
-                <input type="text" name="asunto" id="asunto" class="form-control" value="{{ $peticion->asunto }}"
+                <label for="tipo">Tipo</label>
+                <input type="text" name="tipo" id="tipo" class="form-control" value="{{ $peticion->tipoPeticion }}"
                     readonly>
             </div>
 
