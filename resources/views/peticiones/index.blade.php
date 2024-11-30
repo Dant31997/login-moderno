@@ -117,7 +117,7 @@
                                                     @if (Auth::user()->role === 'admin')
                                                         <!-- Botón de Asignar (Solo visible para admin) -->
                                                         <a href="{{ route('peticiones.edit', $peticion->id) }}"
-                                                            class="btn btn-warning">Responder o Asignar</a>
+                                                            class="btn btn-warning">Revisar</a>
 
                                                         <!-- Botón de Eliminar (Solo visible para admin) -->
                                                         <form action="{{ route('peticiones.destroy', $peticion->id) }}"

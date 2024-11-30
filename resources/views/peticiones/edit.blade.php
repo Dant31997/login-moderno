@@ -39,16 +39,13 @@
                 <label for="encargado">Responsable</label>
                 <select class="form-select" id="encargado" name="responsable" required>
                     <option value="">Seleccione un encargado</option>
+                    
                     @foreach ($empleados as $empleado)
                         <option value="{{ $empleado->id }}" {{ $peticion->responsable == $empleado->id ? 'selected' : '' }}>
                             {{ $empleado->name }}
                         </option>
                     @endforeach
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="respuesta">Respuesta</label>
-                <textarea name="respuesta" id="respuesta" class="form-control" >{{ $peticion->respuesta }}</textarea>
             </div>
 
             <button type="submit" class="btn btn-success mt-3">Enviar</button>

@@ -66,15 +66,17 @@ class PeticionesController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'responsable' => 'required|string|max:255',
-            'respuesta' => 'required|string|max:255',
-            'estado' => 'required|string|max:255',
+            'responsable' => 'nullable|string|max:255',
+            'respuesta' => 'nullable|string|max:255',
+            'estado' => 'nullable|string|max:255',
         ]);
 
         $peticion = Peticion::findOrFail($id);
-        $peticion->responsable = $request->input('responsable');
-        $peticion->respuesta = $request->input('respuesta');
-        $peticion->estado = $request->input('estado');
+        
+        $peticion->responsable = $request->input('responsable') ?? $peticion->responsable;
+        $peticion->respuesta = $request->input('respuesta') ?? $peticion->respuesta;
+        $peticion->estado = $request->input('estado') ?? $peticion->estado;
+
         $peticion->save();
 
         return redirect()->route('peticiones.index')->with('success', 'Petición actualizada con éxito.');
