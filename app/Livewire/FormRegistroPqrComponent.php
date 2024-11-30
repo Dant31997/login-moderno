@@ -7,7 +7,7 @@ use App\Models\Peticion;
 
 class FormRegistroPqrComponent extends Component
 {
-    
+
     public $nombreCompleto;
     public $numeroCuenta;
     public $correo;
@@ -16,7 +16,7 @@ class FormRegistroPqrComponent extends Component
     public $descripcion;
     public $preferenciaContacto;
     public $consentimiento;
-    public $mensajeTipo; 
+    public $mensajeTipo;
 
     public $mensaje;
 
@@ -25,7 +25,6 @@ class FormRegistroPqrComponent extends Component
         try {
             //code...
             $item = new Peticion();
-           
             $item->nombreCompleto = $this->nombreCompleto;
             $item->numeroCuenta = $this->numeroCuenta;
             $item->correo = $this->correo;
@@ -35,17 +34,17 @@ class FormRegistroPqrComponent extends Component
             $item->preferenciaContacto = $this->preferenciaContacto;
             $item->consentimiento = $this->consentimiento;
             $respuesta = $item->save();
-    // Si la solicitud fue exitosa
-    $this->mensaje = 'Petición generada con éxito. ID: ' . $item->id; // Incluye el ID generado
-    $this->mensajeTipo = 'success'; // Tipo de mensaje de éxito
 
-} catch (\Throwable $th) {
-    // Si ocurre un error
-    $this->mensaje = 'Hay un error: ' . $th->getMessage();
-    $this->mensajeTipo = 'danger'; // Tipo de mensaje de error
-}
+            // Mensaje de éxito
+            $this->mensaje = 'Petición generada con éxito.';
+            $this->mensajeTipo = 'success'; // Define el tipo de mensaje
+        } catch (\Throwable $th) {
+            // Mensaje de error
+            $this->mensaje = 'Hay un error: ' . $th->getMessage();
+            $this->mensajeTipo = 'danger'; // Define el tipo de mensaje
+        }
 
-return redirect()->route('pqr.registrar'); // Redirige después de guardar
+        return;
     }
 
     public function render()
