@@ -10,14 +10,6 @@
         @endif
     </header>
 
-    <!-- Encabezado con logo -->
-    <div class="container mt-5 text-center">
-        <img src="http://localhost/LOGIN-MODERNO/resources/img/pixelcut-export.png" style="width: 100px; position:absolute; left:450px; top: 45px" alt="BancApp">
-        <h2 class="font-weight-bold text-primary">Formulario de PQRs</h2>
-        <p class="text-dark">Por favor, completa el formulario con tus datos para procesar tu solicitud.</p>
-        <a href="{{ route('consultapqr') }}" class="btn btn-primary consultar-pqr">Consulta de Petición</a>
-    </div>
-
     <!-- Formulario -->
     <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh; background-color: #f7f7f7;">
         <form wire:submit.prevent="save" class="shadow-lg p-4 rounded-lg bg-white w-75" style="margin-top: -100px; z-index: 10;">

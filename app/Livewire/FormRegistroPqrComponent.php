@@ -7,7 +7,7 @@ use App\Models\Peticion;
 
 class FormRegistroPqrComponent extends Component
 {
-    
+
     public $nombreCompleto;
     public $numeroCuenta;
     public $correo;
@@ -16,7 +16,7 @@ class FormRegistroPqrComponent extends Component
     public $descripcion;
     public $preferenciaContacto;
     public $consentimiento;
-    public $mensajeTipo; 
+    public $mensajeTipo;
 
     public $mensaje;
 
@@ -24,7 +24,6 @@ class FormRegistroPqrComponent extends Component
     {
         try {
             $item = new Peticion();
-           
             $item->nombreCompleto = $this->nombreCompleto;
             $item->numeroCuenta = $this->numeroCuenta;
             $item->correo = $this->correo;
