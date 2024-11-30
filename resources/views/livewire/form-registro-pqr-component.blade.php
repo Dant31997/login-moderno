@@ -1,13 +1,28 @@
 <div class="container-fluid p-0">
     <header class="bg-gradient-primary" style="height: 200px;">
-        @if (isset($mensaje))
-            <!-- Mensaje de Alerta -->
-            <div class="alert alert-{{ $mensajeTipo }} alert-dismissible fade show shadow" role="alert">
-                <i class="fas fa-{{ $mensajeTipo == 'success' ? 'check-circle' : 'exclamation-circle' }} me-2"></i>
-                {{ $mensaje }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+        @if (session('success'))
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+                Swal.fire({
+                    title: '¡Generada con exito!',
+                    text: "{{ session('success') }}",
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                });
+            </script>
         @endif
+
+        @if (session('error'))
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                title: '¡Error!',
+                text: "{{ session('error') }}",
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+        </script>
+    @endif
     </header>
 
     <!-- Formulario -->

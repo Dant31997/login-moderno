@@ -47,6 +47,11 @@ class PeticionesController extends Controller
 
         return redirect()->route('peticiones.index')->with('success', 'Petición creada con éxito.');
     }
+    public function detalle($id)
+    {
+        $peticion = Peticion::findOrFail($id); // Busca la petición con el ID recibido
+        return view('pqr.detalle', compact('peticion')); // Pasa la petición a la vista
+    }
 
     // Mostrar el formulario para editar una petición
     public function edit($id)

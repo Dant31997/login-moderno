@@ -36,16 +36,14 @@ class FormRegistroPqrComponent extends Component
             // Guardar en la base de datos
             $item->save();
 
-    // Si la solicitud fue exitosa
-    $this->mensaje = 'Petición generada con éxito. El numero unico de la petición es: ' . $item->id; // Incluye el ID generado
-    $this->mensajeTipo = 'success'; // Tipo de mensaje de éxito
-    return redirect()->route('pqr.registrar', ['id' => $item->id]);
+            session()->flash('success', 'Petición generada con éxito. El numero unico de la petición es: ' . $item->id);
+    
+                return redirect()->route('pqr.registrar');
 
 } catch (\Throwable $th) {
     // Si ocurre un error
-    $this->mensaje = 'Hay un error: ' . $th->getMessage();
-    $this->mensajeTipo = 'danger'; // Tipo de mensaje de error
-    return redirect()->route('pqr.registrar'); // Redirige después de guardar
+    session()->flash('error', 'Hay un error: ' . $th->getMessage());
+        return redirect()->route('pqr.registrar');
 }
 }
 
