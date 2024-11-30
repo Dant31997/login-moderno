@@ -17,6 +17,18 @@
             @method('PUT')
 
             <div class="mb-3">
+                <label for="encargado" class="form-label">Encargado</label>
+                <select class="form-select" id="encargado" name="encargado" required>
+                    <option value="">Seleccione un encargado</option>
+                    @foreach ($empleados as $empleado)
+                        <option value="{{ $empleado->id }}" {{ $meta->encargado == $empleado->id ? 'selected' : '' }}>
+                            {{ $empleado->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
                 <input type="text" class="form-control" id="descripcion" name="descripcion"
                     value="{{ old('descripcion', $meta->descripcion) }}" required>
@@ -30,17 +42,7 @@
                     <option value="Completada" {{ $meta->estado == 'Completada' ? 'selected' : '' }}>Completada</option>
                 </select>
             </div>
-            <div class="mb-3">
-                <label for="encargado" class="form-label">Encargado</label>
-                <select class="form-select" id="encargado" name="encargado" required>
-                    <option value="">Seleccione un encargado</option>
-                    @foreach ($empleados as $empleado)
-                        <option value="{{ $empleado->id }}" {{ $meta->encargado == $empleado->id ? 'selected' : '' }}>
-                            {{ $empleado->name }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
+            
             <button type="submit" class="btn btn-primary">Actualizar Meta</button>
         </form>
         @endif
