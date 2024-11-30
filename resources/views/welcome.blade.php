@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/03ca14290a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
     <title>BancApp</title>
-</head> 
+</head>
 
 <body>
     <div class="formulario">
@@ -21,23 +21,25 @@
             @csrf
             <div class="cotainer">
                 <div class="congrup">
-                    <input type="email" id="correo" class="form_input" placeholder=" " name="email">
-                    <label for="correo" class="form_label"></i> Correo
-                    </label>
+                    <input type="email" id="correo" class="form_input @error('email') is-invalid @enderror" placeholder=" " name="email">
+                    <label for="correo" class="form_label">Correo</label>
                     <span class="form_line"></span>
+                    @error('email')
+                        <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="congrup">
-                    <input type="password" id="contra" class="form_input" placeholder=" " name="password">
+                    <input type="password" id="contra" class="form_input @error('password') is-invalid @enderror" placeholder=" " name="password">
                     <label for="contra" class="form_label">
                         <i class="fa-solid fa-lock" style="color: #e8def8;"></i> Contraseña
                     </label>
                     <i class="fa-solid fa-eye show-password" id="togglePassword"></i>
                     <span class="form_line"></span>
+                    @error('password') 
+                        <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
+                    @enderror
                 </div>
                 <a href="/"><button class="bn632-hover bn20" type="submit">Iniciar Sesion</button></a>
-                <div class="congrup">
-                    <input class="recuperar-pass" type="submit" value="Recuperar Contraseña">
-                </div>
             </div>
         </form>
     </div>
@@ -45,4 +47,3 @@
 </body>
 
 </html>
-

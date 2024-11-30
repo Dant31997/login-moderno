@@ -45,7 +45,7 @@
                                 </td>
                                 <td>
                                     <!-- Botón de acción para abrir el modal -->
-                                    <button class="btn btn-info" data-bs-toggle="modal"
+                                    <button class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#viewModal{{ $peticion->id }}">
                                         Ver Detalles
                                     </button>

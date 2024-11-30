@@ -1,5 +1,6 @@
 <div class="container-fluid p-0">
     <header class="bg-gradient-primary" style="height: 200px;">
+        
         @if (session('success'))
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
             <script>
@@ -29,7 +30,12 @@
     <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh; background-color: #f7f7f7;">
         <form wire:submit.prevent="save" class="shadow-lg p-4 rounded-lg bg-white w-75" style="margin-top: -100px; z-index: 10;">
             <div class="text-center mb-5">
-                <h2 class="fw-bold text-primary">Formulario de PQRs</h2>
+                <div class="d-flex justify-content-center align-items-center text-center">
+                    <div class="sidebar-brand-icon">
+                        <img class="img-fluid" src="http://localhost/LOGIN-MODERNO/resources/img/pixelcut-export.png" style="width: 50px; height: auto;" />
+                    </div>
+                    <h1 class="fw-bold text-primary">Formulario de PQRs</h1>
+                </div>
                 <p class="text-muted">Completa este formulario para procesar tu solicitud.</p>
                 <a href="{{ route('consultapqr') }}" class="btn btn-outline-primary mt-3">
                     <i class="fas fa-search"></i> Consulta de Petición
