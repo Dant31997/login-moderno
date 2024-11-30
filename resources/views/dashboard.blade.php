@@ -9,6 +9,9 @@
     @endphp
     <!-- Begin Page Content -->
     <div class="container-fluid">
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Inicio</h1>
+</div>n
         <!-- Content Row -->
 
         <div class="row">
@@ -138,8 +141,8 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="chart-pie pt-4 pb-2 table-responsive">
+              <table class="table" id="" width="100%" cellspacing="0">
 
-                        <table class="table" id="" width="100%" cellspacing="0">
                             <thead>
                                 <tr class="card-header">
                                     <th>Tipo</th>
@@ -184,8 +187,9 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="chart-pie pt-4 pb-2 table-responsive">
+
                         <table class="table" id="" width="100%" cellspacing="0">
-                            <thead>
+            <thead>
                                 <tr class="card-header">
 
                                     <th>Descripción</th>

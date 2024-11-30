@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <img src="http://localhost/LOGIN-MODERNO/resources/img/pixelcut-export.png" style="width: 100px; position:absolute; left:450px; top: 25px " alt="BancApp">
     <title>Consulta de Peticiones</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
@@ -26,13 +27,13 @@
         <form class="shadow p-4 rounded bg-gradient-primary text-white mb-2" action="{{ route('consulta.show') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="id" class="form-label">ID de la Petición</label>
+                <label for="id" class="form-label">Numero de la Petición</label>
                 <input 
                     type="text"     
                     name="id" 
                     id="id" 
                     class="form-control"
-                    placeholder="Introduce el ID a buscar"
+                    placeholder="Introduce el numero de tu peticion"
                     value="{{ old('id') }}" 
                     required
                 >
@@ -68,18 +69,6 @@
                         id="tipoPeticion" 
                         class="form-control"
                         placeholder="{{ $peticiones->tipoPeticion }}"
-                        readonly
-                    >
-                </div>
-
-                <!-- Asunto -->
-                <div class="mb-3">
-                    <label for="asunto" class="form-label">Asunto</label>
-                    <input 
-                        type="text" 
-                        id="asunto" 
-                        class="form-control"
-                        placeholder="{{ $peticiones->asunto }}"
                         readonly
                     >
                 </div>
