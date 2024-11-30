@@ -7,6 +7,7 @@
         <div class="card-header py-3">
             <h3 class="m-0 font-weight-bold text-primary ">Tabla Empleados</h3>
         </div>
+
         {{-- Botón para abrir el modal de registrar --}}
         <button type="button" class="btn btn-success m-3" data-toggle="modal" data-target="#RegistrarModal">
             Crear empleado
@@ -23,28 +24,50 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ route('usuarios.store') }}" method="POST"> 
+                    <form action="{{ route('usuarios.store') }}" method="POST">
                         @csrf
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="name">Nombre</label>
-                                <input type="text" name="name" class="form-control" required>
+                                <input type="text" id="name" name="name" class="form-control" required
+                                    autocomplete="name">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" name="email" class="form-control" required>
+                                <input type="email" id="email" name="email" class="form-control" required
+                                    autocomplete="email">
                             </div>
                             <div class="form-group">
                                 <label for="password">Contraseña</label>
-                                <input type="password" name="password" class="form-control" required>
+                                <div class="input-group">
+                                    <input type="password" id="password" name="password" class="form-control" required minlength="8" autocomplete="new-password" 
+                                           placeholder="Ingrese su contraseña">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-eye show-password" id="togglePassword"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <small id="passwordHelp" class="form-text text-muted">La contraseña debe tener al menos 8 caracteres.</small>
                             </div>
+                            
                             <div class="form-group">
                                 <label for="password_confirmation">Confirmar Contraseña</label>
-                                <input type="password" name="password_confirmation" class="form-control" required>
+                                <div class="input-group">
+                                    <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required 
+                                           minlength="8" autocomplete="new-password" placeholder="Confirme su contraseña">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-eye show-password" id="toggleConfirmPassword"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <small id="passwordConfirmationHelp" class="form-text text-muted">Debe coincidir con la contraseña anterior.</small>
                             </div>
+                            
                             <div class="form-group">
                                 <label for="role">Rol</label>
-                                <select name="role" class="form-control">
+                                <select id="role" name="role" class="form-control" required autocomplete="role">
                                     <option value="employee">Empleado</option>
                                     <option value="admin">Admin</option>
                                 </select>
@@ -58,6 +81,7 @@
                 </div>
             </div>
         </div>
+
         {{-- Inicio del content de la tabla --}}
         <div class="card-body">
             <div class="table-responsive">
@@ -86,7 +110,7 @@
                                 <td>{{ $usuario->role }}</td>
                                 <td class="d-flex justify-content-center align-items-center">
                                     <!-- Botón de Editar que abre el modal -->
-                                    <button type="button" class="btn btn-info mr-3" data-toggle="modal"
+                                    <button type="button" class="btn btn-primary mr-3" data-toggle="modal"
                                         data-target="#editModal{{ $usuario->id }}">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </button>
@@ -97,7 +121,8 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');"><i class="fa-solid fa-trash"></i></button>
+                                            onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');"><i
+                                                class="fa-solid fa-trash"></i></button>
                                     </form>
 
                                     <!-- Modal para editar -->
@@ -113,23 +138,26 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <form action="{{ route('usuarios.update', $usuario->id) }}" method="POST">
+                                                <form action="{{ route('usuarios.update', $usuario->id) }}"
+                                                    method="POST">
                                                     @csrf
                                                     @method('PUT')
                                                     <div class="modal-body">
                                                         <div class="form-group">
                                                             <label for="name">Nombre</label>
-                                                            <input type="text" name="name" class="form-control"
-                                                                value="{{ $usuario->name }}" required>
+                                                            <input type="text" id="name" name="name"
+                                                                class="form-control" value="{{ $usuario->name }}"
+                                                                required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="email">Email</label>
-                                                            <input type="email" name="email" class="form-control"
-                                                                value="{{ $usuario->email }}" required>
+                                                            <input type="email" id="email" name="email"
+                                                                class="form-control" value="{{ $usuario->email }}"
+                                                                required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="role">Rol</label>
-                                                            <select name="role" class="form-control">
+                                                            <select id="role" name="role" class="form-control">
                                                                 <option value="employee"
                                                                     {{ $usuario->role == 'employee' ? 'selected' : '' }}>
                                                                     Empleado</option>
@@ -157,4 +185,5 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('assets/js/show.js') }}"></script>
 @endsection

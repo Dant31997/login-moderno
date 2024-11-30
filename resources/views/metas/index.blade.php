@@ -62,7 +62,7 @@
                                 <td class="d-flex justify-content-center align-items-center">
                                     {{-- Botón para Editar --}}
                                     @if (Auth::user()->role === 'admin')
-                                    <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-info mr-3 " ><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-primary mr-3 " ><i class="fa-solid fa-pen-to-square"></i></a>
                                     {{-- Botón para Eliminar --}}
                                     <form action="{{ route('metas.destroy', $meta->id) }}" method="POST" class="d-inline">
                                         @csrf
