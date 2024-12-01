@@ -27,7 +27,7 @@
     </header>
 
     <!-- Formulario -->
-    <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh; background-color: #f7f7f7;">
+    <div class="d-flex justify-content-center align-items-center mb-3" style="min-height: 80vh; background-color: #f7f7f7;">
         <form wire:submit.prevent="save" class="shadow-lg p-4 rounded-lg bg-white w-75" style="margin-top: -100px; z-index: 10;">
             <div class="text-center mb-5">
                 <div class="d-flex justify-content-center align-items-center text-center">
