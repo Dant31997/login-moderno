@@ -10,7 +10,7 @@
 
         {{-- Botón para abrir el modal de registrar --}}
         <button type="button" class="btn btn-success m-3" data-toggle="modal" data-target="#RegistrarModal">
-            Crear empleado
+            <i class="fa-solid fa-plus"></i> Crear empleado
         </button>
 
         {{-- Modal para registrar empleado --}}
@@ -107,7 +107,7 @@
                             <tr>
                                 <td>{{ $usuario->name }}</td>
                                 <td>{{ $usuario->email }}</td>
-                                <td>{{ $usuario->role }}</td>
+                                <td>{{ $usuario->role === 'employee' ? 'Empleado' : $usuario->role }}</td>
                                 <td class="d-flex justify-content-center align-items-center">
                                     <!-- Botón de Editar que abre el modal -->
                                     <button type="button" class="btn btn-primary mr-3" data-toggle="modal"
