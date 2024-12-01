@@ -69,7 +69,7 @@
 
             <!-- Mostrar resultados si existen -->
             @if (isset($peticiones))
-                <div class="bg-gradient-primary shadow p-4 rounded-lg m-4">
+                <div class="bg-gradient-primary shadow p-4 rounded-lg mt-2 ml-4 mr-4">
                     <h3 class="text-primary">Resultado:</h3>
                     <div class="mb-3">
                         <label for="nombreCompleto" class="form-label text-white">Nombre Completo</label>

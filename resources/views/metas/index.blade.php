@@ -10,7 +10,7 @@
 
         {{-- Botón para Crear Meta (solo para Admin) --}}
         @if (Auth::user()->role === 'admin')
-            <a href="{{ route('metas.create') }}" class="btn btn-success m-3">Crear Meta</a>
+            <a href="{{ route('metas.create') }}" class="btn btn-success m-3"><i class="fa-solid fa-plus"></i> Crear Meta</a>
         @endif
         {{-- Inicio del content de la tabla --}}
         <div class="card-body">
