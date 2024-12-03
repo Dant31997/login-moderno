@@ -25,7 +25,15 @@
                     <label for="correo" class="form_label">Correo</label>
                     <span class="form_line"></span>
                     @error('email')
-                        <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    <script>
+                        Swal.fire({
+                            title: '¡Credenciales incorrectas!',
+                            text: "{{ session('error') }}",
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar'
+                        });
+                    </script>
                     @enderror
                 </div>
                 <div class="congrup">
@@ -36,7 +44,15 @@
                     <i class="fa-solid fa-eye show-password" id="togglePassword"></i>
                     <span class="form_line"></span>
                     @error('password') 
-                        <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    <script>
+                        Swal.fire({
+                            title: '¡Credenciales incorrectas!',
+                            text: "{{ session('error') }}",
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar'
+                        });
+                    </script>
                     @enderror
                 </div>
                 <a href="/"><button class="bn632-hover bn20" type="submit">Iniciar Sesion</button></a>

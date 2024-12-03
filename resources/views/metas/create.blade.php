@@ -21,6 +21,7 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Guardar Meta</button>
+            <a href="{{ route('metas.index') }}" class="btn btn-danger">Cancelar</a>
         </form>
     </div>
 @endsection

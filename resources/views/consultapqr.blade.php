@@ -10,6 +10,7 @@
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @livewireStyles
 </head>
 
@@ -66,9 +67,25 @@
                     @csrf
                     <div class="mb-3">
                         <label for="id" class="form-label text-white">Número de la Petición</label>
-                        <input type="text" name="id" id="id" class="form-control"
+                        <input type="text" name="id" id="id" class="form-control" 
                             placeholder="Introduce el número de tu petición" value="{{ old('id') }}" required>
                     </div>
+                    <script>
+                        @if (session('error'))
+                            Swal.fire({
+                                title: "Error",
+                                text: "Esta peticion no existe",
+                                imageUrl: "https://media.tenor.com/zzZZwwmB-6YAAAAM/warning.gif",
+                                imageAlt: "Custom image"
+                            });
+                        @elseif (session('success'))
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Éxito',
+                                text: '{{ session('success') }}'
+                            });
+                        @endif
+                    </script>
                     <button type="submit" class="btn btn-success mt-3"><i class="fa-solid fa-magnifying-glass">
                             Buscar</i></button>
                     <a href="{{ route('pqr.registrar') }}" class="btn btn-danger mt-3"><i class="fa-solid fa-arrow-left">

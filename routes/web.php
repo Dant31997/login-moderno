@@ -39,6 +39,7 @@ Route::resource('metas', MetaController::class);
 Route::resource('peticiones', PeticionesController::class);
 route::get('/consultapqr', [ConsultaController::class, 'index'])->name('consultapqr');
 Route::post('/consultapqr', [ConsultaController::class, 'show'])->name('consulta.show');
+Route::post('/check-id', [ConsultaController::class, 'checkId'])->name('checkId');
 
 
 Route::get('/dashboard', [DashboardController::class, 'contenidoDash'])->middleware('auth');

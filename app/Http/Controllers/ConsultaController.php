@@ -30,12 +30,28 @@ class ConsultaController extends Controller
 
         if (!$peticiones) {
             // En caso de que no se encuentre la petición, puedes mostrar un mensaje o redirigir
-            return redirect()->back()->with('error', 'Peticiones no encontradas');
+            return redirect()->back()->with('error', 'Petición no encontrada.');
         }
+        
 
 
         //vista retornada
         return view('consultapqr',compact('peticiones'));
     }
+    public function checkId(Request $request)
+{
+    $id = $request->input('id');
+
+    // Reemplaza 'YourModel' con el modelo correspondiente
+    $exists = \App\Models\Peticion::find($id);
+
+    if (!$exists) {
+        // Redirige de vuelta con un mensaje de error
+        return back()->with('error', 'El número unico no se encuentra en la base de datos.');
+    }
+
+    // Continuar con la lógica si el ID existe
+    return back()->with('success', 'Encontrado.');
+}
 
 }

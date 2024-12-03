@@ -64,12 +64,41 @@
                                     @if (Auth::user()->role === 'admin')
                                     <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-primary mr-3 " ><i class="fa-solid fa-pen-to-square"></i></a>
                                     {{-- Botón para Eliminar --}}
-                                    <form action="{{ route('metas.destroy', $meta->id) }}" method="POST" class="d-inline">
+                                    <form id="delete-form-{{ $meta->id }}" action="{{ route('metas.destroy', $meta->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('¿Estás seguro de eliminar esta meta?');"><i class="fa-solid fa-trash"></i></button>
+                                        <button type="button" class="btn btn-danger delete-button" data-id="{{ $meta->id }}">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
                                     </form> 
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function () {
+                                            const deleteButtons = document.querySelectorAll('.delete-button');
+                                    
+                                            deleteButtons.forEach(button => {
+                                                button.addEventListener('click', function () {
+                                                    const formId = this.dataset.id;
+                                                    const form = document.getElementById(`delete-form-${formId}`);
+                                    
+                                                    Swal.fire({
+                                                        title: '¿Estás seguro?',
+                                                        text: "No podrás revertir esta acción.",
+                                                        icon: 'warning',
+                                                        showCancelButton: true,
+                                                        confirmButtonColor: '#d33',
+                                                        cancelButtonColor: '#3085d6',
+                                                        confirmButtonText: 'Sí, eliminar',
+                                                        cancelButtonText: 'No, cancelar'
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed) {
+                                                            form.submit(); // Enviar el formulario
+                                                        }
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    </script>
+                                    
                                     @endif
                                     @if (Auth::user()->role === 'employee')
                                     <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-primary mr-3">Completar</a>

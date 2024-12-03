@@ -25,7 +25,7 @@
                             {{ $empleado->name }}
                         </option>
                     @endforeach
-                </select>
+                </select>   
             </div>
 
             <div class="mb-3">
@@ -54,7 +54,22 @@
     </select>
 </div>
 <button type="submit" class="btn btn-success">Actualizar Meta</button>
+<a href="{{ route('metas.index') }}" class="btn btn-danger">Cancelar</a>
         </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                @if (session('success'))
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Éxito!',
+                        text: 'Meta actualizada con éxito',
+                        timer: 3000, // Cierra automáticamente después de 3 segundos
+                        showConfirmButton: false
+                    });
+                @endif
+            });
+        </script>
+        
         @endif
 
         @if (Auth::user()->role === 'employee')
@@ -96,6 +111,19 @@
             <button type="submit" class="btn btn-success mt-3">Verificar Meta</button>
             <a href="{{ route('metas.index') }}" class="btn btn-danger mt-3">Cancelar</a>
         </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                @if (session('success'))
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Éxito!',
+                        text: 'Evidencia enviada con éxito',
+                        timer: 3000, // Cierra automáticamente después de 3 segundos
+                        showConfirmButton: false
+                    });
+                @endif
+            });
+        </script>
 
         @endif
     </div>
