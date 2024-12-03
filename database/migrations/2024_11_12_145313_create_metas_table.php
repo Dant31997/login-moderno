@@ -17,8 +17,9 @@ return new class extends Migration
             $table->unsignedBigInteger('encargado'); // Referencia a la tabla `users`
             $table->enum('estado', ['Pendiente', 'En proceso', 'Completada'])->default('Pendiente'); // Campo `estado`
             $table->timestamp('fecha_completada')->nullable(); // Campo opcional `fecha_completada`
+            $table->string('url')->nullable(); // Nuevo campo para almacenar la URL
             $table->timestamps(); // Campos `created_at` y `updated_at`
-
+        
             // Clave foránea para `encargado`
             $table->foreign('encargado')
                 ->references('id')
