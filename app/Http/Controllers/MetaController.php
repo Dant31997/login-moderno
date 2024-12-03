@@ -14,7 +14,7 @@ class MetaController extends Controller
     public function index()
     {
         if (FacadesAuth::user()->role === 'admin') {
-            $metas = Meta::select('metas.*', 'users.name as encargado_name  ')
+            $metas = Meta::select('metas.*', 'users.name as encargado_name')
                 ->leftJoin('users', 'metas.encargado', '=', 'users.id') // Unir la tabla de metas con la de usuarios
                 ->get();
         } else {

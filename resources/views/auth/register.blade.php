@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,11 +13,7 @@
 
 <body>
     <div class="formulario">
-        <div class="container-logo">
-            <div class="logo-principal">
-                <img src="http://localhost/LOGIN-MODERNO/resources/img/pixelcut-export.png" />
-            </div>
-        </div>
+        
         <form method="post" action="{{ route('register') }}">
             @csrf
             <div class="cotainer">

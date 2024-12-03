@@ -76,16 +76,53 @@
                                         <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-primary mr-3">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
-                                        <form id="delete-form-{{ $meta->id }}"
-                                            action="{{ route('metas.destroy', $meta->id) }}" method="POST"
-                                            class="d-inline">
+                                        <form id="delete-form-{{ $meta->id }}" action="{{ route('metas.destroy', $meta->id) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="button" class="btn btn-danger delete-button"
-                                                data-id="{{ $meta->id }}">
+                                            <button type="button" class="btn btn-danger delete-button" data-id="{{ $meta->id }}">
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
                                         </form>
+                                        <script>
+                                            document.addEventListener('DOMContentLoaded', () => {
+                                                    document.querySelectorAll('.delete-button').forEach(button => {
+                                                        button.addEventListener('click', function () {
+                                                            const metaId = this.getAttribute('data-id');
+                                                            const form = document.getElementById(`delete-form-${metaId}`);
+
+                                                            // Mostrar alerta de confirmación
+                                                            Swal.fire({
+                                                                title: '¿Estás seguro?',
+                                                                text: "Esta acción no se puede deshacer.",
+                                                                icon: 'warning',
+                                                                showCancelButton: true,
+                                                                confirmButtonColor: '#d33',
+                                                                cancelButtonColor: '#3085d6',
+                                                                confirmButtonText: 'Sí, eliminar',
+                                                                cancelButtonText: 'Cancelar'
+                                                            }).then((result) => {
+                                                                if (result.isConfirmed) {
+                                                                    form.submit(); // Enviar el formulario si se confirma
+                                                                }
+                                                            });
+                                                        });
+                                                    });
+                                                });
+
+                                        </script>
+                                        <script>
+                                            document.addEventListener('DOMContentLoaded', function() {
+                                                @if (session('success'))
+                                                    Swal.fire({
+                                                        icon: 'success',
+                                                        title: '¡Éxito!',
+                                                        text: 'Realizado con éxito',
+                                                        timer: 3000, // Cierra automáticamente después de 3 segundos
+                                                        showConfirmButton: false
+                                                    });
+                                                @endif
+                                            });
+                                        </script>
                                     @endif
                                     @if (Auth::user()->role === 'employee')
                                         <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-primary mr-3">

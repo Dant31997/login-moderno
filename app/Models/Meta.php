@@ -10,9 +10,9 @@ class Meta extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['descripcion', 'estado', 'fecha_completada', 'encargado', 'url'];
+    protected $fillable = ['descripcion', 'estado','fecha_completada', 'encargado', 'url'];
 
-    protected $dates = ['fecha_completada', 'created_at', 'updated_at'];
+    protected $dates = ['fecha_completada','created_at', 'updated_at'];
 
     public function encargado()
     {

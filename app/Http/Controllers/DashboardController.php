@@ -32,8 +32,8 @@ class DashboardController extends Controller
         if (FacadesAuth::user()->role === 'admin'){
 
             $conteo = DB::table('peticiones')
-            ->where('responsable', 'Por Asignar' )
-            ->count();
+            ->selectRaw('SUM(CASE WHEN responsable IS NULL THEN 1 ELSE 0 END) AS null_count')
+             ->value('null_count');
 
             $conteoM = DB::table('metas')
                         ->where('estado', 'Pendiente' )

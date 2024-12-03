@@ -56,19 +56,7 @@
                 <button type="submit" class="btn btn-success">Actualizar Meta</button>
                 <a href="{{ route('metas.index') }}" class="btn btn-danger">Cancelar</a>
             </form>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    @if (session('success'))
-                        Swal.fire({
-                            icon: 'success',
-                            title: '¡Éxito!',
-                            text: 'Meta actualizada con éxito',
-                            timer: 3000, // Cierra automáticamente después de 3 segundos
-                            showConfirmButton: false
-                        });
-                    @endif
-                });
-            </script>
+            
         @endif
 
         @if (Auth::user()->role === 'employee')

@@ -78,6 +78,19 @@
                             <button type="submit" class="btn btn-primary">Registrar</button>
                         </div>
                     </form>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            @if (session('success'))
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: '¡Éxito!',
+                                    text: 'Realizado con éxito',
+                                    timer: 3000, // Cierra automáticamente después de 3 segundos
+                                    showConfirmButton: false
+                                });
+                            @endif
+                        });
+                    </script>
                 </div>
             </div>
         </div>
