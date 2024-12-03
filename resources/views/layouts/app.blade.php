@@ -127,7 +127,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            Selecciona "Cerrar sesion" abajo si estas preparado para salir
+                            Selecciona "Cerrar sesion" si deseas salir
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -135,7 +135,7 @@
                             <form id="logout-form-modal" action="{{ route('logout') }}" method="POST"
                                 style="display: inline;">
                                 @csrf
-                                <button type="submit" class="btn btn-primary">Cerrar sesion</button>
+                                <button type="submit" class="btn btn-danger">Cerrar sesion</button>
                             </form>
                         </div>
                     </div>
