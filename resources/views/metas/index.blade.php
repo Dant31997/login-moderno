@@ -3,6 +3,7 @@
 @section('title', 'Tables Page')
 
 @section('content')
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h3 class="m-0 font-weight-bold text-primary">Tabla de Metas</h3>
@@ -144,7 +145,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalPruebaLabel">Evidencia</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
                     <img id="imagenPrueba" src="" alt="Evidencia" class="img-fluid">
